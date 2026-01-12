@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Chat Application</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>Rooms</h2>
+      <ul id="rooms"></ul>
+      <input id="newRoomInput" placeholder="New room name" />
+      <button id="createRoomBtn">Create Room</button>
+      <hr/>
+      <div id="authArea">
+        <input id="usernameInput" placeholder="Choose username" />
+        <button id="joinBtn">Join Selected Room</button>
+      </div>
+      <div id="usersArea">
+        <h3>Users in room</h3>
+        <ul id="usersList"></ul>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-header">
+        <h2 id="currentRoom">Not in a room</h2>
+        <div id="status"></div>
+      </header>
+
+      <section id="messages" class="messages"></section>
+
+      <form id="messageForm" class="message-form">
+        <input id="messageInput" autocomplete="off" placeholder="Type a message and press Enter" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <template id="messageTpl">
+    <div class="message">
+      <div class="meta"><span class="user"></span> <span class="time"></span></div>
+      <div class="text"></div>
+    </div>
+  </template>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/chat.js"></script>
+</body>
+</html>
